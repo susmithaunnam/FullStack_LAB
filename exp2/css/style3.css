@@ -1,0 +1,155 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background:#f6f6fa;
+    color:#333;
+}
+header{
+    background:#003366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    padding:20px 40px;
+    color:white;
+}
+.logo-sec img{
+    width:90px;
+    height:90px;
+    margin-left:60px;
+}
+.title-section{
+    text-align:center;
+}
+.title-section h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+.title-section h2{
+    font-size:22px;
+    font-weight:normal;
+}
+nav{
+    background:#004080;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:18px 25px;
+    font-size:18px;
+}
+.box{
+    width: 90%;
+    height: 100%;
+    margin: 25px auto 90px;
+    background-color: #f8f8f8;
+    padding: 20px 35px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.15);
+}
+.box h2{
+    color: rgb(24, 114, 24);
+    text-align: center;
+}
+.box h3{
+    color: #004080;
+    text-align: center;  
+}
+.box h4{
+    color: grey;
+    text-align: center;
+}
+.notice {
+    background-color: #fff8dc;   
+    border-left: 6px solid #f4a300;
+    padding: 15px 20px;
+    margin: 30px auto;
+    width: 85%;
+    box-sizing: border-box;
+}
+.login-box{
+    width: 400px;
+    background-color: white;
+    height: 200px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px gray;
+}
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+.login-box button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.tb {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 5px gray;
+}
+.tb thead {
+    background-color: #004080;
+    color: white;
+}
+.tb td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+.placement-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+.placement-highlights {
+    background: white;
+    width: 650px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+
+    display: flex;          /* makes inner cards horizontal */
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+.placement-card {
+    flex: 1;
+}
+.placement-card h2 {
+    color: #0059b3;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+.placement-card p {
+    font-size: 18px;
+    margin: 0;
+}
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
