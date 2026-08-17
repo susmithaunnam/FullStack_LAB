@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+
+        body {
+            background-color: #087f75;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 420px;
+            margin: 30px auto;
+            background-color: #f4f7f8;
+            padding: 25px 35px;
+            border-radius: 4px;
+        }
+        h1 {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-top: -50px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        .form-row {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 95px;
+            font-weight: bold;
+            font-family: Georgia, serif;
+            font-size: 12px;
+            vertical-align: top;
+            margin-top: 7px;
+        }
+        input,
+        select,
+        textarea {
+            width: 160px;
+            padding: 5px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 45px;
+            resize: none;
+            vertical-align: top;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+        }
+        .gender {
+            width: auto;
+        }
+        .gender-label {
+            width: auto;
+            font-weight: normal;
+            margin-right: 25px;
+        }
+        .message {
+            margin-left: 100px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .valid-input {
+            border: 1px solid green;
+        }
+        .invalid-input {
+            border: 1px solid red;
+        }
+        button {
+            display: block;
+            margin: 15px auto 0;
+            background-color: #171738;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #29295a;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Registration Form</h1>
+        <div class="form-row">
+            <label>First Name:</label>
+            <input type="text" id="firstName"
+                   oninput="validateFirstName()">
+            <div id="firstNameMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>Last Name:</label>
+            <input type="text" id="lastName"
+                   oninput="validateLastName()">
+            <div id="lastNameMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>Date of Birth:</label>
+            <input type="date" id="dob"
+                   onchange="validateDOB()">
+            <div id="dobMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+
+            <label>Email Id:</label>
+
+            <input type="text" id="email"
+                   oninput="validateEmail()">
+
+            <div id="emailMsg" class="message"></div>
+
+        </div>
+        <div class="form-row">
+
+            <label>Mobile No.:</label>
+
+            <input type="text" id="mobile"
+                   oninput="validateMobile()">
+
+            <div id="mobileMsg" class="message"></div>
+
+        </div>
+        <div class="form-row">
+
+            <label>Gender:</label>
+
+            <input class="gender"
+                   type="radio"
+                   name="gender"
+                   value="Male"
+                   onchange="validateGender()">
+
+            <span>Male</span>
+
+            <input class="gender"
+                   type="radio"
+                   name="gender"
+                   value="Female"
+                   onchange="validateGender()">
+
+            <span>Female</span>
+
+            <div id="genderMsg" class="message"></div>
+
+        </div>
+        <div class="form-row">
+
+            <label>Country:</label>
+
+            <select id="country"
+                    onchange="validateCountry()">
+
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+
+            </select>
+
+            <div id="countryMsg" class="message"></div>
+
+        </div>
+        <div class="form-row">
+
+            <label>State:</label>
+
+            <select id="state"
+                    onchange="validateState()">
+
+                <option value="">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Karnataka">Karnataka</option>
+
+            </select>
+
+            <div id="stateMsg" class="message"></div>
+
+        </div>
+        <div class="form-row">
+            <label>Address:</label>
+            <input type="text" id="address"
+                   oninput="validateAddress()">
+            <div id="addressMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>Pin Code:</label>
+            <input type="text" id="pin"
+                   oninput="validatePin()">
+            <div id="pinMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>City:</label>
+            <input type="text" id="city"
+                   oninput="validateCity()">
+            <div id="cityMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>District:</label>
+            <select id="district"
+                    onchange="validateDistrict()">
+                <option value="">Select District</option>
+                <option value="Visakhapatnam">Visakhapatnam</option>
+                <option value="Khordha">Khordha</option>
+                <option value="Guntur">Guntur</option>
+            </select>
+            <div id="districtMsg" class="message"></div>
+        </div>
+        <div class="form-row">
+            <label>Hobbies:</label>
+            <textarea id="hobbies"
+                      oninput="validateHobbies()"></textarea>
+            <div id="hobbiesMsg" class="message"></div>
+        </div>
+        <button onclick="submitForm()">Submit</button>
+    </div>
+    <script>
+        function validateFirstName() {
+            let value = document.getElementById("firstName").value;
+            let msg = document.getElementById("firstNameMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please enter first name";
+                msg.className = "message error";
+                return false;
+            }
+
+            else if (!/^[A-Za-z]+$/.test(value)) {
+
+                msg.innerHTML = "❌ Only alphabets allowed";
+                msg.className = "message error";
+
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Looks good!";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateLastName() {
+            let value = document.getElementById("lastName").value;
+            let msg = document.getElementById("lastNameMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please enter last name";
+                msg.className = "message error";
+                return false;
+            }
+            else if (!/^[A-Za-z]+$/.test(value)) {
+                msg.innerHTML = "❌ Only alphabets allowed";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Looks good!";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateDOB() {
+            let value = document.getElementById("dob").value;
+            let msg = document.getElementById("dobMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please select date";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Valid date!";
+                msg.className = "message success";
+
+                return true;
+            }
+        }
+        function validateEmail() {
+            let value = document.getElementById("email").value;
+            let msg = document.getElementById("emailMsg");
+            let pattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (value === "") {
+                msg.innerHTML = "❌ Please enter email";
+                msg.className = "message error";
+                return false;
+            }
+            else if (!pattern.test(value)) {
+                msg.innerHTML = "❌ Invalid email address!";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Valid email address!";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateMobile() {
+            let value = document.getElementById("mobile").value;
+            let msg = document.getElementById("mobileMsg");
+            if (/^\d{10}$/.test(value)) {
+                msg.innerHTML = "✔ Valid 10 digit mobile number!";
+                msg.className = "message success";
+                return true;
+            }
+            else {
+                msg.innerHTML ="❌ Please enter a valid 10 digit mobile number!";
+                msg.className = "message error";
+                return false;
+            }
+        }
+        function validateGender() {
+            let gender =
+                document.querySelector(
+                    'input[name="gender"]:checked'
+                );
+            let msg = document.getElementById("genderMsg");
+            if (gender === null) {
+                msg.innerHTML = "❌ Please select your gender!";
+                msg.className = "message error";
+
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Gender selected.";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateCountry() {
+            let value = document.getElementById("country").value;
+            let msg = document.getElementById("countryMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please select country.";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Country selected.";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateState() {
+            let value = document.getElementById("state").value;
+            let msg = document.getElementById("stateMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please select state.";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ State selected.";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateAddress() {
+            let value = document.getElementById("address").value;
+            let msg = document.getElementById("addressMsg");
+            if (value.trim() === "") {
+                msg.innerHTML = "❌ Please enter address.";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Looks good!";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validatePin() {
+            let value = document.getElementById("pin").value;
+            let msg = document.getElementById("pinMsg");
+            if (/^\d{6}$/.test(value)) {
+                msg.innerHTML = "✔ Valid 6 digit pin code!";
+                msg.className = "message success";
+                return true;
+            }
+            else {
+                msg.innerHTML = "❌ Please enter a 6 digit pin code!";
+                msg.className = "message error";
+                return false;
+            }
+        }
+        function validateCity() {
+            let value = document.getElementById("city").value;
+            let msg = document.getElementById("cityMsg");
+            if (value.trim() === "") {
+                msg.innerHTML = "❌ Please enter city.";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Looks good!";
+                msg.className = "message success";
+
+                return true;
+            }
+        }
+        function validateDistrict() {
+            let value = document.getElementById("district").value;
+            let msg = document.getElementById("districtMsg");
+            if (value === "") {
+                msg.innerHTML = "❌ Please select district.";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ District selected.";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function validateHobbies() {
+            let value = document.getElementById("hobbies").value;
+            let msg = document.getElementById("hobbiesMsg");
+            if (value.length < 10) {
+                msg.innerHTML =
+                    "❌ Please enter at least 10 characters! (" +
+                    value.length +
+                    " entered)";
+                msg.className = "message error";
+                return false;
+            }
+            else {
+                msg.innerHTML = "✔ Looks good!";
+                msg.className = "message success";
+                return true;
+            }
+        }
+        function submitForm() {
+            let valid = true;
+            if (!validateFirstName()) valid = false;
+            if (!validateLastName()) valid = false;
+            if (!validateDOB()) valid = false;
+            if (!validateEmail()) valid = false;
+            if (!validateMobile()) valid = false;
+            if (!validateGender()) valid = false;
+            if (!validateCountry()) valid = false;
+            if (!validateState()) valid = false;
+            if (!validateAddress()) valid = false;
+            if (!validatePin()) valid = false;
+            if (!validateCity()) valid = false;
+            if (!validateDistrict()) valid = false;
+            if (!validateHobbies()) valid = false;
+            if (valid) {
+                alert("Form submitted successfully!");
+
+            }
+        }
+    </script>
+</body>
+</html>
